@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard Music Classes - Instructor Demo & Booking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #faf9f6;
+            margin: 0;
+            padding: 0;
+            color: #222;
+        }
+        header {
+            background: #4a5fc1;
+            color: #fff;
+            padding: 2rem 1rem 1rem 1rem;
+            text-align: center;
+        }
+        section { 
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background: #fff;
+            width: 90%;
+            max-width: 700px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(80,100,255,0.08);
+        }
+        h2 {
+            color: #4a5fc1;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            border-radius: 8px;
+        }
+        label { display: block; margin-top: 1rem; }
+        input, textarea, select {
+            width: 98%;
+            padding: 0.7rem;
+            margin-top: 0.2rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: 1px solid #bfc8df;
+            box-sizing: border-box;
+        }
+        button {
+            background: #4a5fc1;
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            padding: 0.8rem 2rem;
+            margin-top: 1.2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover { background: #354986; }
+        .testimonials { margin-top: 2rem; }
+        .testimonial {
+            background: #eef0fa;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(74,95,193,0.06);
+        }
+        .success-msg {
+            color: #307d1e;
+            background: #e9f8df;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Keyboard Music Classes with Mr. Siva</h1>
+        <p>Learn keyboard from a passionate performer and school music teacher. Discover, experience and grow!</p>
+    </header>
+    <section>
+        <h2>About the Instructor</h2>
+        <p>
+            Mr. Siva is a dedicated <strong>keyboardist</strong> and music teacher with over 10 years’ experience inspiring students in schools and private classes.<br>
+            He specializes in Western and Indian styles, making classes fun and engaging for all levels.
+        </p>
+    </section>
+    <section>
+        <h2>Demo Video</h2>
+        <div class="video-container">
+            <!-- Replace the YouTube link below with your demo video URL -->
+            <iframe src="https://www.youtube.com/embed/lGQ8wN4Q7bY" title="Demo Keyboard Performance" allowfullscreen></iframe>
+        </div>
+    </section>
+    <section>
+        <h2>Book a Music Class</h2>
+        <form id="bookingForm">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="level">Your Skill Level</label>
+            <select id="level" name="level">
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+            </select>
+
+            <label for="message">Any Questions?</label>
+            <textarea id="message" name="message" rows="3"></textarea>
+
+            <button type="submit">Book Class</button>
+            <div id="formMsg"></div>
+        </form>
+    </section>
+    <section class="testimonials">
+        <h2>Student Testimonials</h2>
+        <div class="testimonial">
+            <strong>Keerthana:</strong> <br>
+            “Mr. Siva’s classes are creative and fun! I learned more in 2 months than a year elsewhere.”
+        </div>
+        <div class="testimonial">
+            <strong>Arun:</strong> <br>
+            “The flexible timings and personal attention really helped me build confidence as a keyboard player.”
+        </div>
+        <div class="testimonial">
+            <strong>Priya:</strong> <br>
+            “Highly recommended for anyone wanting to learn music from basics. Very supportive teacher.”
+        </div>
+    </section>
+    <script>
+      document.getElementById('bookingForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          // Basic validation & success message
+          var name = document.getElementById('name').value.trim();
+          var email = document.getElementById('email').value.trim();
+          if(name && email) {
+              document.getElementById('formMsg').innerHTML = 
+                  '<div class="success-msg">Thank you for booking! You will be contacted soon by Mr. Siva.</div>';
+              // Reset form after a delay
+              setTimeout(function(){
+                  document.getElementById('bookingForm').reset();
+                  document.getElementById('formMsg').innerHTML = '';
+              }, 3500);
+          } else {
+              document.getElementById('formMsg').innerHTML = 
+                  '<div class="success-msg" style="color:#d32626;background:#ffeaea;">Please enter your name and email.</div>';
+          }
+      });
+    </script>
+</body>
+</html>
